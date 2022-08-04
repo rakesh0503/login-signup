@@ -1,39 +1,61 @@
 <nav class="navbar navbar-light bg-primary">
     <div class="container-fluid">
-        <h1 style="color: #fff;">Crud</h1>
+        <h1 style="color: #fff;">Angular Crud</h1>
         <div class="d-flex">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="changeBtn()">Add Employee</button>
         </div>
     </div>
 </nav>
+<div class="p-5">
+    <div class="card text-center ">
+        <div class="card-header">
+          Employee Details
+        </div>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+         
+            <table class="table table-success table-striped mt-3">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Mobile No.</th>
+                        <th scope="col">Salary</th>
+                        <th>Action</th>
+                    </tr>
+            
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of employeeData">
+                        <td>{{data.id}}</td>
+                        <td>{{data.firstName}}</td>
+                        <td>{{data.lastName}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.mobile}}</td>
+                        <td>{{data.salary}}</td>
+                        <td>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                (click)="editEmployee(data)">Edit</button>
+                            <button class="btn btn-danger mx-3" (click)="deleteEmployee(data)">Delet</button>
+                        </td>
+                    </tr>
+            
+                </tbody>
+            </table>
+          </div>
+       
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+</div>
 
-<table class="table mt-3">
-    <thead>
 
-        <th scope="col">Employee ID</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email ID</th>
-        <th scope="col">Mobile No.</th>
-        <th scope="col">Salary</th>
-        <th>Action</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of employeeData">
-        <td>{{data.id}}</td>
-        <td>{{data.firstName}}</td>
-        <td>{{data.lastName}}</td>
-        <td>{{data.email}}</td>
-        <td>{{data.mobile}}</td>
-        <td>{{data.salary}}</td>
-        <td>
-            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="editEmployee(data)">Edit</button>
-            <button class="btn btn-danger mx-3" (click)="deleteEmployee(data)">Delet</button>
-        </td>
-        </tr>
- 
-    </tbody>
-</table>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -45,33 +67,41 @@
             </div>
             <div class="modal-body">
                 <form [formGroup]="formData">
-                <div class="row">
-                    <div class="col-lg-12 mb-3">
-                        <label for="inputEmail4" class="form-label">First Name</label>
-                        <input type="text" formControlName="firstName" class="form-control" placeholder="First name" aria-label="First name">
+                    <div class="row">
+                        <div class="col-lg-12 mb-3">
+                            <label for="inputEmail4" class="form-label">First Name</label>
+                            <input type="text" formControlName="firstName" class="form-control" placeholder="First name"
+                                aria-label="First name">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label for="inputEmail4" class="form-label">Last Name</label>
+                            <input type="text" formControlName="lastName" class="form-control" placeholder="Last name"
+                                aria-label="Last name">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="text" formControlName="email" class="form-control" placeholder="Email"
+                                aria-label="Last name">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label for="inputEmail4" class="form-label">Mobile No.</label>
+                            <input type="text" formControlName="mobile" class="form-control" placeholder="Mobile No."
+                                aria-label="Last name">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label for="inputEmail4" class="form-label">Salary</label>
+                            <input type="text" formControlName="salary" class="form-control" placeholder="Salary"
+                                aria-label="Last name">
+                        </div>
                     </div>
-                    <div class="col-lg-12 mb-3">
-                        <label for="inputEmail4" class="form-label">Last Name</label>
-                        <input type="text" formControlName="lastName" class="form-control" placeholder="Last name" aria-label="Last name">
-                    </div>
-                    <div class="col-lg-12 mb-3">
-                        <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="text" formControlName="email" class="form-control" placeholder="Email" aria-label="Last name">
-                    </div>
-                    <div class="col-lg-12 mb-3">
-                        <label for="inputEmail4" class="form-label">Mobile No.</label>
-                        <input type="text" formControlName="mobile" class="form-control" placeholder="Mobile No." aria-label="Last name">
-                    </div>
-                    <div class="col-lg-12 mb-3">
-                        <label for="inputEmail4" class="form-label">Salary</label>
-                        <input type="text" formControlName="salary" class="form-control" placeholder="Salary" aria-label="Last name">
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="cancle" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" (click)="postEmployee()">Add</button>
+                <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="addAndUpdate" class="btn btn-primary" (click)="postEmployee()">Add</button>
+                <button type="button" *ngIf="!addAndUpdate" class="btn btn-primary"
+                    (click)="updateEmployee()">Update</button>
+
             </div>
         </div>
     </div>

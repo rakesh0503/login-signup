@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  postData( data: any): Observable<any> {
+  postData( data: any){
     let extendUrl = `${this.url}`
     return this.http.post<any>(extendUrl, data).pipe(map((res:any)=>{
       return res;
@@ -24,8 +24,8 @@ export class ApiService {
       return res;
     }))
   }
-  updateData(url: string, data: any,id:number){
-    let extendUrl = `${this.url}/${url}`
+  updateData(data: any,id:number){
+    let extendUrl = `${this.url}`
     return this.http.put<any>(`${extendUrl}/${id}`,data).pipe(map((res:any)=>{
       return res;
     }))

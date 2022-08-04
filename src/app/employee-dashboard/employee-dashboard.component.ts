@@ -12,7 +12,9 @@ export class EmployeeDashboardComponent implements OnInit {
 
   formData!: FormGroup;
   employeeObject: Employee = new Employee();
-  employeeData!: any 
+  employeeData!: any;
+  addAndUpdate:boolean = true;
+
   // = new Employee();
   constructor(private fb: FormBuilder, private api: ApiService) { }
 
@@ -34,15 +36,14 @@ export class EmployeeDashboardComponent implements OnInit {
     this.employeeObject.mobile = this.formData.value.mobile;
     this.employeeObject.salary = this.formData.value.salary;
 
-    this.api.postData(this.employeeObject).subscribe((res) => {
-      console.log(res);
+    this.api.postData(this.employeeObject).subscribe((res)=>{
+        console.log(res);
       alert('Employee added Successfully');
       let ref = document.getElementById('cancle');
       ref?.click()
       this.formData.reset();
-    },( err) => {
-      alert('Somthing Went Worng')
-    });
+      this.getEmployee()
+    })
   }
   getEmployee(){
     this.api.getData().subscribe((res:any)=>{
@@ -58,10 +59,30 @@ export class EmployeeDashboardComponent implements OnInit {
     })
   }
   editEmployee(row:any){
+    this.addAndUpdate = false
+    this.employeeObject.id = row.id;
     this.formData.controls['firstName'].setValue(row.firstName);
     this.formData.controls['lastName'].setValue(row.lastName);
     this.formData.controls['email'].setValue(row.email);
     this.formData.controls['mobile'].setValue(row.mobile);
     this.formData.controls['salary'].setValue(row.salary);
+  }
+  updateEmployee(){
+    this.employeeObject.firstName = this.formData.value.firstName;
+    this.employeeObject.lastName = this.formData.value.lastName;
+    this.employeeObject.email = this.formData.value.email;
+    this.employeeObject.mobile = this.formData.value.mobile;
+    this.employeeObject.salary = this.formData.value.salary;
+    
+    this.api.updateData(this.employeeObject,this.employeeObject.id).subscribe((res)=>{
+      alert('Update Successfully');
+      let ref = document.getElementById('close');
+      ref?.click();
+      this.formData.reset();
+      this.getEmployee();
+    })
+  }
+  changeBtn(){
+this.addAndUpdate = true
   }
 }
