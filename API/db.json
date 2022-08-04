@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "ramlala",
+      "lastName": "yadav",
+      "email": "yadav@gandu.com",
+      "mobile": "4353545454",
+      "salary": "43543543"
+    },
+    {
+      "id": 3,
+      "firstName": "ramlala",
+      "lastName": "yadav",
+      "email": "yadav@gandu.com",
+      "mobile": "4353545454",
+      "salary": "43543543"
+    },
+    {
+      "id": 4,
+      "firstName": "LALU",
+      "lastName": "YADAY",
+      "email": "CHUTIYA@YADAV.COM",
+      "mobile": "675675676765",
+      "salary": "657567"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
