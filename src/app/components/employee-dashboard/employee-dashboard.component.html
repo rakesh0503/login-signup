@@ -4,18 +4,19 @@
         <div class="d-flex">
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 (click)="changeBtn()">Add Employee</button>
+                <div routerLink="/login" class="btn btn-danger mx-2">Logout</div>
         </div>
     </div>
 </nav>
 <div class="p-5">
     <div class="card text-center ">
         <div class="card-header">
-          Employee Details
+            Employee Details
         </div>
         <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5>
+            <!-- <h5 class="card-title">Special title treatment</h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-         
+
             <table class="table table-success table-striped mt-3">
                 <thead class="table-info">
                     <tr>
@@ -27,7 +28,7 @@
                         <th scope="col">Salary</th>
                         <th>Action</th>
                     </tr>
-            
+
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of employeeData">
@@ -43,15 +44,15 @@
                             <button class="btn btn-danger mx-3" (click)="deleteEmployee(data)">Delet</button>
                         </td>
                     </tr>
-            
+
                 </tbody>
             </table>
-          </div>
-       
-        <div class="card-footer text-muted">
-          2 days ago
         </div>
-      </div>
+
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
 </div>
 
 

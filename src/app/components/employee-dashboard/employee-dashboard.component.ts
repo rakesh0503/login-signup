@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Employee } from '../model/interface';
-import { ApiService } from '../shared/api.service';
+import { Employee } from '../../model/interface';
+import { ApiService } from '../../shared/api.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -39,7 +39,7 @@ export class EmployeeDashboardComponent implements OnInit {
     this.api.postData(this.employeeObject).subscribe((res) => {
       console.log(res);
       alert('Employee added Successfully');
-      let ref = document.getElementById('cancle');
+      let ref = document.getElementById('close');
       ref?.click()
       this.formData.reset();
       this.getEmployee()

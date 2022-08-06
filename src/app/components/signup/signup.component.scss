@@ -1,0 +1,18 @@
+.vertical-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.card {
+    // background: rgb(88, 154, 201);
+    color: #fff;
+    background: linear-gradient(135deg, hsla(205, 51%, 57%, 0.65), hsla(212, 82%, 28%, 0.65));
+
+    button {
+        background: rgb(150, 110, 224);
+    }
+}

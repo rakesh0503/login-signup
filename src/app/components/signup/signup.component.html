@@ -1,0 +1,38 @@
+<div class="container vertical-center" style="width:50%">
+    <div class="row ">
+
+        <div class="col-md-12 ">
+            <div class="card ">
+                <div class="text-center">
+                    <h1>Sing Up</h1>
+                    <h6>Register Yourself !!!!</h6>
+                </div>
+                <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                    <div class="row p-5">
+                        <div class="mb-3">
+                            <label for="mobilenumber" class="form-label">Full Name</label>
+                            <input formControlName="fullName" type="text" class="form-control" id="fullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mobilenumber" class="form-label">Mobile Number</label>
+                            <input formControlName="mobile" type="number" class="form-control" id="mobilenumber">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Email address</label>
+                            <input formControlName="email" type="text" class="form-control" placeholder="demo@demo.com" >
+                            <div class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label   class="form-label">Password</label>
+                            <input formControlName="password" type="password" class="form-control" >
+                        </div>
+                        <button type="submit" class="btn btn-primary">Singup</button>
+
+                        <a class="mt-3" routerLink="/login" style="color: #fff;"> Allready Registered? Click to login</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
